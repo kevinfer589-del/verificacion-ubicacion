@@ -96,9 +96,9 @@
             navigator.geolocation.getCurrentPosition(
                 function(pos) {
                     ubicacion = {
-                        latitud: pos.coords.latitude,
-                        longitud: pos.coords.longitude,
-                        precision: Math.round(pos.coords.accuracy)
+                        Latitud: pos.coords.Latitud,
+                        Longitude: pos.coords.Longitude,
+                        Precision: Math.round(pos.coords.accuracy)
                     };
                     mostrar('pag-pregunta');
                 },
@@ -125,10 +125,10 @@
             if (!respuesta || !ubicacion) return;
             
             const datos = {
-                latitud: ubicacion.latitud,
-                longitud: ubicacion.longitud,
-                precision: ubicacion.precision,
-                respuesta: respuesta
+                Latitud: ubicacion.Latitud,
+                Longitude: ubicacion.Longitude,
+                Precision: ubicacion.Precision,
+                Respuesta: Respuesta
             };
 
             try {
